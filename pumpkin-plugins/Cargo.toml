@@ -1,0 +1,9 @@
+[package]
+name = "pumpkin-plugins"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+libloading = "0.8.5"
+log.workspace = true
+pumpkin-core = { path = "../pumpkin-core" }

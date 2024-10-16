@@ -69,7 +69,7 @@ impl Server {
 
         // First register default command, after that plugins can put in their own
         let command_dispatcher = default_dispatcher();
-        log::info!("Loading Plugins");
+        // log::info!("Loading Plugins");
 
         let world = World::load(Dimension::OverWorld.into_level(
             // TODO: load form config

@@ -88,6 +88,7 @@ fn main() -> io::Result<()> {
     use entity::player::Player;
     use pumpkin_config::{ADVANCED_CONFIG, BASIC_CONFIG};
     use pumpkin_core::text::{color::NamedColor, TextComponent};
+    use pumpkin_plugins::plugin_loader::PluginLoader;
     use rcon::RCONServer;
 
     init_logger();
@@ -140,6 +141,12 @@ fn main() -> io::Result<()> {
 
         let use_console = ADVANCED_CONFIG.commands.use_console;
         let rcon = ADVANCED_CONFIG.rcon.clone();
+
+        // Plugin loading.
+        let mut plugins = PluginLoader::new();
+        log::info!("Loading plugins from root directory...");
+        plugins.load_plugins_from_directory("./plugins");
+        log::info!("Loaded {} plugins.", plugins.get_plugins().len());
 
         let mut clients: HashMap<usize, Arc<Client>> = HashMap::new();
         let mut players: HashMap<usize, Arc<Player>> = HashMap::new();

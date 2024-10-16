@@ -1,0 +1,10 @@
+[package]
+name = "pumpkin-plugin-example"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+pumpkin-plugins = { path = "../pumpkin-plugins" }
+
+[lib]
+crate-type = ["cdylib"]
